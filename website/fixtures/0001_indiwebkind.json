@@ -1,0 +1,82 @@
+[
+    {
+        "model": "website.indiewebkind",
+        "pk": 1,
+        "fields": {
+            "kind": "article",
+            "date_added": "2021-11-11T00:37:17.209Z"
+        }
+    },
+    {
+        "model": "website.indiewebkind",
+        "pk": 2,
+        "fields": {
+            "kind": "status",
+            "date_added": "2021-11-11T00:38:17.478Z"
+        }
+    },
+    {
+        "model": "website.indiewebkind",
+        "pk": 3,
+        "fields": {
+            "kind": "in-reply-to",
+            "date_added": "2021-11-11T00:38:17.478Z"
+        }
+    },
+    {
+        "model": "website.indiewebkind",
+        "pk": 4,
+        "fields": {
+            "kind": "rsvp",
+            "date_added": "2021-11-11T00:38:17.478Z"
+        }
+    },
+    {
+        "model": "website.indiewebkind",
+        "pk": 5,
+        "fields": {
+            "kind": "like-of",
+            "date_added": "2021-11-11T00:38:17.478Z"
+        }
+    },
+    {
+        "model": "website.indiewebkind",
+        "pk": 6,
+        "fields": {
+            "kind": "bookmark",
+            "date_added": "2021-11-11T00:38:17.478Z"
+        }
+    },
+    {
+        "model": "website.indiewebkind",
+        "pk": 7,
+        "fields": {
+            "kind": "checkin",
+            "date_added": "2021-11-11T00:38:17.478Z"
+        }
+    },
+    {
+        "model": "website.indiewebkind",
+        "pk": 8,
+        "fields": {
+            "kind": "repost-of",
+            "date_added": "2021-11-11T00:38:17.478Z"
+        }
+    },
+    {
+        "model": "website.indiewebkind",
+        "pk": 7,
+        "fields": {
+            "kind": "photo",
+            "date_added": "2021-11-11T00:38:17.478Z"
+        }
+    },
+    {
+        "model": "website.indiewebkind",
+        "pk": 8,
+        "fields": {
+            "kind": "sport",
+            "date_added": "2021-11-11T00:38:17.478Z"
+        }
+    }
+]
