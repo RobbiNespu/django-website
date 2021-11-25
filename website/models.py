@@ -35,7 +35,8 @@ class Post(models.Model):
     slug = models.SlugField()
     kind = models.ForeignKey(IndiewebKind, on_delete=models.CASCADE)
     source = models.ForeignKey(IndiewebSource, on_delete=models.CASCADE,null=True)
-    intro = models.TextField(max_length=200)
+    webMention = models.URLField(verbose_name="Webmention target", max_length=200, default="")
+    # intro = models.TextField(max_length=200) // for TLDR or meta decription but let comment out for now
     body = RichTextUploadingField()
     creation_date = models.DateTimeField(auto_now_add=True)
     modification_date = models.DateTimeField(auto_now=True)
