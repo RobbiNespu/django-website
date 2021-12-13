@@ -38,13 +38,13 @@ class Tag(models.Model):
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255,unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     kind = models.ForeignKey(IndiewebKind, on_delete=models.CASCADE)
-    source = models.ForeignKey(IndiewebSource, on_delete=models.CASCADE, null=True)
-    webMention = models.URLField(verbose_name="Webmention target", max_length=200, default="")
+    source = models.ForeignKey(IndiewebSource, on_delete=models.CASCADE, blank=True, null=True)
+    webMention = models.URLField(verbose_name="Webmention target", max_length=200, blank=True, default="")
     # intro = models.TextField(max_length=200) // for TLDR or meta decription but let comment out for now
-    body = RichTextUploadingField()
+    body = RichTextUploadingField(blank=True)
     creation_date = models.DateTimeField(auto_now_add=True)
     modification_date = models.DateTimeField(auto_now=True)
     tags = models.ManyToManyField(Tag, blank=True)
