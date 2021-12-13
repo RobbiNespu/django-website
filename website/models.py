@@ -1,6 +1,11 @@
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 
+# Post status
+STATUS = (
+    (0, "Draft"),
+    (1, "Publish")
+)
 
 # Create your models here.
 class IndiewebKind(models.Model):
@@ -24,23 +29,26 @@ class IndiewebSource(models.Model):
     def __str__(self):
         return self.source
 
+
 class Tag(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
 
+
 class Post(models.Model):
     title = models.CharField(max_length=255)
-    slug = models.SlugField()
+    slug = models.SlugField(max_length=200, unique=True)
     kind = models.ForeignKey(IndiewebKind, on_delete=models.CASCADE)
-    source = models.ForeignKey(IndiewebSource, on_delete=models.CASCADE,null=True)
+    source = models.ForeignKey(IndiewebSource, on_delete=models.CASCADE, null=True)
     webMention = models.URLField(verbose_name="Webmention target", max_length=200, default="")
     # intro = models.TextField(max_length=200) // for TLDR or meta decription but let comment out for now
     body = RichTextUploadingField()
     creation_date = models.DateTimeField(auto_now_add=True)
     modification_date = models.DateTimeField(auto_now=True)
     tags = models.ManyToManyField(Tag, blank=True)
+    status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
         ordering = ['-creation_date']
@@ -49,3 +57,9 @@ class Post(models.Model):
             models.Index(fields=['-creation_date'])
         ]
 
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse("post_detail", kwargs={"slug": str(self.slug)})
