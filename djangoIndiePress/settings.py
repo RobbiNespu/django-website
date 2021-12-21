@@ -167,3 +167,5 @@ CKEDITOR_CONFIGS = {
         'removePlugins': 'flash,anchor,iframe,forms,div,exportpdf,templates,About',
     },
 }
+
+CKEDITOR_ALLOW_NONIMAGE_FILES = False
