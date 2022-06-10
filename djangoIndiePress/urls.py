@@ -18,11 +18,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth.decorators import login_required
 from django.urls import path, include
-from website.views import frontpage
+from website.views import frontpage, post_detail
 from ckeditor_uploader import views as ckeditor_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', frontpage, name='frontpage'),
+    path('<slug:slug>/', post_detail, name='post_detail'),
     # CKEDITOR paths
     path('ckeditor',include('ckeditor_uploader.urls')),
 ] + static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
