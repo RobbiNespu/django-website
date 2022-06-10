@@ -18,6 +18,7 @@ $ pip install -r requirements.txt
 Now let run the server locally
 ```
 $ python manage.py migrate
+$ python manage.py collectstatic
 $ python manage.py runserver
 ```
 then go to http://127.0.0.1:8000/ or you can use diff port for example with port 8080  
