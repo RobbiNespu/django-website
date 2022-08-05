@@ -12,7 +12,8 @@ If you are a Windows platform, you would activate the virtualenv like this:
 ```
 Once the virtualenv is activated, you can install the required dependencies.
 ```
-$ pip install -r requirements.txt
+$ python -m pip freeze > requirements.txt
+$ python -m pip install -r requirements.txt
 ```
 
 Now let run the server locally
@@ -31,6 +32,11 @@ $ python manage.py runserver 8080
 ```
 $ python -m pip install -U Django
 $ python -Wa manage.py test # run all tests
+```
+
+# Check outdate packages
+```
+$ python -m pip list --outdated
 ```
 
 # Documentation
